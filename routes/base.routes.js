@@ -18,12 +18,12 @@ router.get("/profile", isLoggedIn, (req, res, next) =>{
   User.findById(req.user._id)
   .populate('favorites')
   .then((user) => {
-    api.getPlayerByTag("#28P8V2Y9")
+    api.getPlayerByTag(user.tag)
     .then((userTag) => {
       console.log(userTag)
-       res.render("profile", {user: user, userTag: userTag});
+      const avg = userTag.wins / userTag.losses
+       res.render("profile", {user: user, userTag: userTag, avg});
        })
-
   })
   .catch((e)=>{
     console.log(e)

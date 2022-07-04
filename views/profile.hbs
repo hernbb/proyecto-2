@@ -1,6 +1,12 @@
 <h1>Bienvenido {{user.username}}</h1>
-
+{{#if userTag}}
 <h3>{{userTag.name}}</h3>
+<p>Exp Level: {{userTag.expLevel}}</p>
+<p>Trophies: {{userTag.trophies}}</p>
+<p>Wins: {{userTag.wins}}</p>
+<p>Losses: {{userTag.losses}}</p>
+<p>Win ratio: {{avg}}</p>
+{{/if}}
 
 <br>
 {{#each user.favorites}}
