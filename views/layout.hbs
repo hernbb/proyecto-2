@@ -9,7 +9,7 @@
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet"/>
 
-    {{!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">  --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> 
    
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
@@ -17,7 +17,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Clash Royale</a>
+        <a class="navbar-brand" href="/">Clash Royale</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -40,12 +40,19 @@
             <li class="nav-item">
               <a class="nav-link" href="/profile">Profile</a>
             </li>
+            {{!-- {{#if isLoggedOut}} --}}
             <li class="nav-item">
               <a class="nav-link" href="/signup">Signup</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
+              <a class="nav-link" href="/login" >Login</a>
             </li>
+            {{!-- {{else}} --}}
+             <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+            {{!-- {{/if}} --}}
+
           </ul>
         </div>
       </div>
@@ -56,6 +63,10 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
       crossorigin="anonymous"
+    ></script>
+    <script
+          type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"
     ></script>
     <script src="/js/script.js"></script>
   </body>

@@ -106,11 +106,11 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
   // Here we use the same logic as above
   // - either length based parameters or we check the strength of a password
-  if (password.length < 8) {
-    return res.status(400).render("auth/login", {
-      errorMessage: "Your password needs to be at least 8 characters long.",
-    });
-  }
+  // if (password.length < 8) {
+  //   return res.status(400).render("auth/login", {
+  //     errorMessage: "Your password needs to be at least 8 characters long.",
+  //   });
+  // }
 
   // Search the database for a user with the username submitted in the form
   User.findOne({ username })
@@ -131,7 +131,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         }
         req.session.user = user;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-        return res.redirect("/");
+        return res.redirect("/profile");
       });
     })
 
