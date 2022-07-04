@@ -8,13 +8,14 @@
       <div class='card shadow-sm'>
         <img src="{{iconUrls.medium}}" alt="">
         <p>{{name}}</p>
+        <p>{{id}}</p>
         <p>{{maxLevel}}</p>
         <form action = "/add-favorite" method="POST">
           
           <input type="hidden" name="name" value={{name}}>
           <input type="hidden" name="apiId" value={{id}}>
           <input type="hidden" name="maxLevel" value={{maxLevel}}>
-          <input type="hidden" name="image" value={{iconUrls.medium}}>
+          <input type="hidden" name="iconUrls" value={{iconUrls.medium}}>
           
 
           <button type="submit">Añadir a favoritos</button>

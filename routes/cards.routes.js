@@ -20,7 +20,7 @@ const { ClashRoyaleAPI } = require('@varandas/clash-royale-api')
 router.get('/cards',(req, res)=>{
     api.getCards()
     .then((cards) => {
-        console.log(cards)
+        // console.log(cards)
         // Do something with the cards
         res.render(`cards/list`, {cards: cards} )
     })
@@ -41,15 +41,15 @@ router.get('/cards',(req, res)=>{
 })
 
 router.post("/add-favorite", isLoggedIn ,(req, res) =>{
-const query = { name, id, maxLevel, iconUrls } = req.body
-const idToCheck = req.body.id;
-    Card.find({apiId: idToCheck})
+const query = { name, apiId, maxLevel, iconUrls } = req.body
+    Card.find({apiId: apiId})
 	.then (charArray => {
 		//comprobar si ese apiId ya esta en db cards
 		if (charArray.length === 0) {
             Card
                 .create(query)
                 .then(result => {
+                    console.log(result)
                   User
                     .findByIdAndUpdate(req.user._id,{$push : {favorites : result._id}})
                     .then(()=>{

@@ -1,6 +1,10 @@
-<h1>bienvenido {{user.username}}</h1>
+<h1>Bienvenido {{user.username}}</h1>
+
+<h3>{{userTag.name}}</h3>
+
+<br>
 {{#each user.favorites}}
-<img src={{image}} alt={{name}}>
+<img src={{iconUrls}} alt={{name}}>
 <p>{{name}}</p>
 <form action = "/delete-favorite" method="POST">
     <input type="hidden" name="id" value={{_id}}>
@@ -8,3 +12,4 @@
 <button type="submit">borrar favorito</button>
 </form>
 {{/each}}
+

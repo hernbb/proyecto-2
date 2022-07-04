@@ -4,9 +4,9 @@ const { Schema, model } = require("mongoose");
 const CardSchema = new Schema(
   {
     name: String,
-    id: Number,
+    apiId: Number,
     maxLevel: Number,
-    iconUrls: {medium:String}
+    iconUrls: String
   },
   {
     timestamps: true,
@@ -24,7 +24,5 @@ CardSchema.pre("save", function(next) {
     next();
 });
 
-
-// const Character = model("Character", userSchema);
 
 module.exports = model("Card", CardSchema);
