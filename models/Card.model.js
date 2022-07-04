@@ -1,14 +1,12 @@
 const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
-const characterSchema = new Schema(
+const CardSchema = new Schema(
   {
     name: String,
-    status: String,
-    species: String,
-    gender: String,
-    image: String,
-    apiId: Number
+    id: Number,
+    maxLevel: Number,
+    iconUrls: {medium:String}
   },
   {
     timestamps: true,
@@ -16,7 +14,7 @@ const characterSchema = new Schema(
 );
 
 
-characterSchema.pre("save", function(next) {
+CardSchema.pre("save", function(next) {
   // console.log(this)
 
   const nameToUpper = this.name.split(' ').map(word => word[0].toUpperCase() + word.slice(1).toLowerCase()).join(' ')
@@ -29,4 +27,4 @@ characterSchema.pre("save", function(next) {
 
 // const Character = model("Character", userSchema);
 
-module.exports = model("Character", characterSchema);
+module.exports = model("Card", CardSchema);

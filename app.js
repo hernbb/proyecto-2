@@ -31,8 +31,8 @@ require("./routes/index")(app)
 // const authRoutes = require("./routes/auth");
 // app.use("/auth", authRoutes);
 
-// const charRoutes = require("./routes/characters.routes");
-// app.use("/", charRoutes);
+// const cardRoutes = require("./routes/cards.routes");
+// app.use("/", cardRoutes);
 
 require("./error-handling")(app);
 
