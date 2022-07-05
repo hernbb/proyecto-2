@@ -1,3 +1,6 @@
+
+
+
 <h1>Bienvenido {{user.username}}</h1>
 <h5><b>{{user.name}}</b></h5>
 <a href="/update-profile/{{user._id}}">Update profile</a>
@@ -11,8 +14,17 @@
 <p>Wins: <b>{{userTag.wins}}</b></p>
 <p>Losses: <b>{{userTag.losses}}</b></p>
 <p>Win ratio: <b>{{avg}}</b></p>
+<h4>Current Deck:</h4>
+{{#each userTag.currentDeck}}
+<p>{{name}}</p>
+<img src="{{iconUrls.medium}}"></img> 
+{{/each}}
 {{/if}}
 </b>
+<br>
+<br>
+<br>
+              <a class="nav-link" href="/logout">Logout</a>
 <br>
 <br>
 <br>

@@ -3,6 +3,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const User = require("../models/User.model");
 const { ClashRoyaleAPI } = require("@varandas/clash-royale-api");
 const Deck = require("../models/Deck.model");
+const isLoggedOut = require("../middleware/isLoggedOut");
 
 
 // Initialize the api Hernando
@@ -16,7 +17,9 @@ const api = new ClashRoyaleAPI(
 router.get("/", (req, res, next) => {
   res.render("index");
 });
-
+// router.get("/profile", isLoggedOut,(req, res, next)=>{
+//   res.render("auth/login")
+// } )
 router.get("/profile", isLoggedIn, (req, res, next) => {
   User.findById(req.user._id)
     .populate("favorites")
@@ -33,14 +36,6 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
       else{ 
         res.render("profile", {user: user});
       }
-      
-      // api.getPlayerByTag(user.tag)
-      // .then((userTag) => {
-      //   //console.log(userTag);
-      //   let avg = (userTag.wins / userTag.losses).toFixed(2);
-      //   res.render("profile", {user: user, userTag: userTag, avg});
-      //   // res.send({ userTag: userTag });
-      // });
     })
     .catch((e) => {
       console.log(e);

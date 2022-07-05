@@ -164,7 +164,21 @@ console.log(profileQuery)
 const {_id} = req.params
 console.log(_id)
 const tagUpper = tag.toUpperCase()
- 
+ if(username.length === 0){
+  return res
+            .status(400)
+            .render("auth/update-profile", { errorMessage: "Fill username" });
+}
+if (name.length === 0){
+  return res
+            .status(400)
+            .render("auth/update-profile", { errorMessage: "Fill name" });
+}
+if (password.length === 0 || password.length < 3){
+  return res
+            .status(400)
+            .render("auth/update-profile", { errorMessage: "Fill password" });
+}
   return bcrypt
       .genSalt(saltRounds)
       .then((salt) => bcrypt.hash(password, salt))
