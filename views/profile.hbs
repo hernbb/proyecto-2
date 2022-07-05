@@ -1,6 +1,9 @@
 <h1>Bienvenido {{user.username}}</h1>
 {{#if userTag}}
 <h3>{{userTag.name}}</h3>
+<h5>Arena: {{userTag.arena.name}}</h5>
+<h6>{{userTag.currentFavouriteCard.name}}</h6>
+<img src="{{userTag.currentFavouriteCard.iconUrls}}"></img> 
 <p>Exp Level: {{userTag.expLevel}}</p>
 <p>Trophies: {{userTag.trophies}}</p>
 <p>Wins: {{userTag.wins}}</p>

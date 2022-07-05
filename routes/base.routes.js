@@ -21,7 +21,7 @@ router.get("/profile", isLoggedIn, (req, res, next) =>{
     api.getPlayerByTag(user.tag)
     .then((userTag) => {
       console.log(userTag)
-      const avg = userTag.wins / userTag.losses
+      let avg = (userTag.wins / userTag.losses).toFixed(2)
        res.render("profile", {user: user, userTag: userTag, avg});
        })
   })
