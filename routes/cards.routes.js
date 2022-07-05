@@ -22,7 +22,9 @@ router.get('/cards',(req, res)=>{
     .then((cards) => {
         // console.log(cards)
         // Do something with the cards
-        res.render(`cards/list`, {cards: cards} )
+        // res.render(`cards/list`, {cards: cards} )
+        res.send( {cards: cards} )
+        
     })
     .catch((err) => {
         // handle errors

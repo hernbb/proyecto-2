@@ -1,18 +1,18 @@
 <h1>Bienvenido {{user.username}}</h1>
 {{#if userTag}}
-<h3>{{userTag.name}}</h3>
-<h5>Arena: {{userTag.arena.name}}</h5>
+<h3><b>{{userTag.name}}</b></h3>
+<h5>Arena: <b>{{userTag.arena.name}}</b></h5>
 <h6>{{userTag.currentFavouriteCard.name}}</h6>
-<img src="{{userTag.currentFavouriteCard.iconUrls}}"></img> 
-<p>Exp Level: {{userTag.expLevel}}</p>
-<p>Trophies: {{userTag.trophies}}</p>
-<p>Wins: {{userTag.wins}}</p>
-<p>Losses: {{userTag.losses}}</p>
-<p>Win ratio: {{avg}}</p>
+<img src="{{userTag.currentFavouriteCard.iconUrls.medium}}"></img> 
+<p>Exp Level: <b>{{userTag.expLevel}}</b></p>
+<p>Trophies: <b>{{userTag.trophies}}</b></p>
+<p>Wins: <b>{{userTag.wins}}</b></p>
+<p>Losses: <b>{{userTag.losses}}</b></p>
+<p>Win ratio: <b>{{avg}}</b></p>
 {{/if}}
-
+</b>
 <br>
-{{#each user.favorites}}
+{{!-- {{#each user.favorites}}
 <img src={{iconUrls}} alt={{name}}>
 <p>{{name}}</p>
 <form action = "/delete-favorite" method="POST">
@@ -20,5 +20,23 @@
 
 <button type="submit">borrar favorito</button>
 </form>
+{{/each}} --}}
+{{#each user.favorites}}
+<div class="card">
+  <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+    <img src={{iconUrls}} alt={{name}} class="img-fluid"/>
+    <a href="#!">
+      <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+    </a>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{name}}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    
+    <form action = "/delete-favorite" method="POST">
+    <input type="hidden" name="id" value={{_id}}>
+    <button type="submit" class="btn btn-primary">borrar favorito</button>
+    </form>
+  </div>
+</div>
 {{/each}}
-
