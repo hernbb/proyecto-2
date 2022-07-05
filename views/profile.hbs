@@ -5,8 +5,9 @@
 <h5><b>{{user.name}}</b></h5>
 <a href="/update-profile/{{user._id}}">Update profile</a>
 {{#if userTag}}
-<h3>In game name: <b>{{userTag.name}}</b></h3>
-<h5>Actual arena: <b>{{userTag.arena.name}}</b></h5>
+<h5>In game name: <b>{{userTag.name}}</b></h5>
+<h6>Actual arena: <b>{{userTag.arena.name}}</b></h6>
+<h6>Clan: <b>{{userTag.clan.name}}</b></h6>
 <h6>{{userTag.currentFavouriteCard.name}}</h6>
 <img src="{{userTag.currentFavouriteCard.iconUrls.medium}}"></img> 
 <p>Exp Level: <b>{{userTag.expLevel}}</b></p>
@@ -16,8 +17,8 @@
 <p>Win ratio: <b>{{avg}}</b></p>
 <h4>Current Deck:</h4>
 {{#each userTag.currentDeck}}
-<p>{{name}}</p>
 <img src="{{iconUrls.medium}}"></img> 
+<p>{{name}}</p>
 {{/each}}
 {{/if}}
 </b>
