@@ -19,7 +19,9 @@ router.get("/signup", isLoggedOut, (req, res) => {
 });
 
 router.post("/signup", isLoggedOut, (req, res) => {
-  const { username, email, password, tag } = req.body;
+  const { name, username, email, password, tag } = req.body;
+  const tagUpper = tag.toUpperCase()
+  console.log(tagUpper)
 
   if (!username) {
     return res
@@ -47,7 +49,8 @@ router.post("/signup", isLoggedOut, (req, res) => {
   */
 
   // Search the database for a user with the username submitted in the form
-  User.findOne({ username }).then((found) => {
+  User.findOne({ username })
+  .then((found) => {
     // If the user is found, send the message username is taken
     if (found) {
       return res
@@ -62,10 +65,11 @@ router.post("/signup", isLoggedOut, (req, res) => {
       .then((passwordEncrypted) => {
         // Create a user and save it in the database
         return User.create({
+          name,
           username,
-          tag,
+          tag: tagUpper,
           email,
-          password: passwordEncrypted
+          password: passwordEncrypted,
         });
       })
       .then((user) => {
@@ -82,7 +86,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
         if (error.code === 11000) {
           return res.status(400).render("auth/signup", {
             errorMessage:
-              "Username need to be unique. The username you chose is already in use.",
+              "Email need to be unique. The email you chose is already in use.",
           });
         }
         return res
@@ -143,6 +147,43 @@ router.post("/login", isLoggedOut, (req, res, next) => {
       return res.status(500).render("login", { errorMessage: err.message });
     });
 });
+
+router.get('/update-profile/:_id', isLoggedIn, (req,res) =>{
+
+  User.findById(req.params._id)
+  .then((response)=> { 
+    console.log(response)
+  res.render('auth/update-profile', {response} )
+  })
+  .catch((e)=>{console.log(e)})
+})
+
+router.post('/update-profile/:_id', isLoggedIn, (req,res) =>{
+  const profileQuery ={ username, name, password, tag} = req.body
+console.log(profileQuery)
+const {_id} = req.params
+console.log(_id)
+const tagUpper = tag.toUpperCase()
+ 
+  return bcrypt
+      .genSalt(saltRounds)
+      .then((salt) => bcrypt.hash(password, salt))
+      .then((passwordEncrypted) => { 
+        User.updateOne(
+        {_id:_id},
+        {name,
+        tag: tagUpper,
+        username,
+        password: passwordEncrypted}
+        )
+        .then(()=>{
+          res.redirect('/profile')
+        })
+})
+.catch((e)=>{
+  console.log(e)
+})
+})
 
 router.get("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {

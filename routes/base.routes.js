@@ -2,6 +2,8 @@ const router = require("express").Router();
 const isLoggedIn = require("../middleware/isLoggedIn");
 const User = require("../models/User.model");
 const { ClashRoyaleAPI } = require("@varandas/clash-royale-api");
+const Deck = require("../models/Deck.model");
+
 
 // Initialize the api Hernando
 const api = new ClashRoyaleAPI(
@@ -19,16 +21,32 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
   User.findById(req.user._id)
     .populate("favorites")
     .then((user) => {
-      api.getPlayerByTag(user.tag).then((userTag) => {
-        console.log(userTag);
-        let avg = (userTag.wins / userTag.losses).toFixed(2);
-        res.render("profile", {user: user, userTag: userTag, avg});
-        // res.send({ userTag: userTag });
-      });
+      if(user.tag){
+        api.getPlayerByTag(user.tag)
+        .then((userTag) => {
+          //console.log(userTag);
+          let avg = (userTag.wins / userTag.losses).toFixed(2);
+          res.render("profile", {user: user, userTag: userTag, avg});
+          // res.send({ userTag: userTag });
+        });
+      }
+      else{ 
+        res.render("profile", {user: user});
+      }
+      
+      // api.getPlayerByTag(user.tag)
+      // .then((userTag) => {
+      //   //console.log(userTag);
+      //   let avg = (userTag.wins / userTag.losses).toFixed(2);
+      //   res.render("profile", {user: user, userTag: userTag, avg});
+      //   // res.send({ userTag: userTag });
+      // });
     })
     .catch((e) => {
       console.log(e);
     });
 });
+
+
 
 module.exports = router;

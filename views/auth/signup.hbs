@@ -1,50 +1,17 @@
-{{!-- <form action="/auth/signup" method="POST">
-   <label> Username
-      <input type="text" name="username">
-   </label>
-   <label> Password
-      <input type="password" name="password">
-   </label>
-
-   <button type="submit">Submit</button>
-</form> --}}
 <br>
 <div class="tab-pane " id="pills-register" role="tabpanel" aria-labelledby="tab-register">
     <form action="/signup" method="POST">
-      {{!-- <div class="text-center mb-3">
-        <p>Sign up with:</p>
-        <button type="button" class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-facebook-f"></i>
-        </button>
-
-        <button type="button" class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-google"></i>
-        </button>
-
-        <button type="button" class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-twitter"></i>
-        </button>
-
-        <button type="button" class="btn btn-link btn-floating mx-1">
-          <i class="fab fa-github"></i>
-        </button>
-      </div>
-
-      <p class="text-center">or:</p> --}}
-
       <!-- Name input -->
       <div class="form-outline mb-4">
         <input type="text" name ='name' id="registerName" class="form-control" />
         <label class="form-label" for="registerName">Name</label>
       </div>
-      
-
       <!-- Username input -->
       <div class="form-outline mb-4">
         <input type="text" name="username" id="registerUsername" class="form-control" />
         <label class="form-label" for="registerUsername">Username</label>
       </div>
-
+      <!-- Tag input -->
       <div class="form-outline mb-4">
         <input type="text" name="tag" id="registerUsername" class="form-control" placeholder="#"/>
         <label class="form-label" for="registerUsername">Tag</label>

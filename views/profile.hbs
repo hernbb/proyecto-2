@@ -1,7 +1,9 @@
 <h1>Bienvenido {{user.username}}</h1>
+<h5><b>{{user.name}}</b></h5>
+<a href="/update-profile/{{user._id}}">Update profile</a>
 {{#if userTag}}
-<h3><b>{{userTag.name}}</b></h3>
-<h5>Arena: <b>{{userTag.arena.name}}</b></h5>
+<h3>In game name: <b>{{userTag.name}}</b></h3>
+<h5>Actual arena: <b>{{userTag.arena.name}}</b></h5>
 <h6>{{userTag.currentFavouriteCard.name}}</h6>
 <img src="{{userTag.currentFavouriteCard.iconUrls.medium}}"></img> 
 <p>Exp Level: <b>{{userTag.expLevel}}</b></p>
@@ -11,6 +13,8 @@
 <p>Win ratio: <b>{{avg}}</b></p>
 {{/if}}
 </b>
+<br>
+<br>
 <br>
 {{!-- {{#each user.favorites}}
 <img src={{iconUrls}} alt={{name}}>
@@ -36,6 +40,11 @@
     <form action = "/delete-favorite" method="POST">
     <input type="hidden" name="id" value={{_id}}>
     <button type="submit" class="btn btn-primary">borrar favorito</button>
+    </form>
+
+    <form action = "/deck" method="POST">
+    <input type="hidden" name="id" value={{_id}}>
+    <button type="submit" class="btn btn-primary">Add to deck</button>
     </form>
   </div>
 </div>
