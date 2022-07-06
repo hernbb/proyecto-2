@@ -1,1 +1,5 @@
-<h1>Deck</h1>
+<h1>Current Deck:</h1>
+{{#each userTag.currentDeck}}
+<img src="{{iconUrls.medium}}"></img> 
+<p>{{name}}</p>
+{{/each}}

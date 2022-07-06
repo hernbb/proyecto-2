@@ -18,65 +18,31 @@ const api = new ClashRoyaleAPI(
 // Initialize the api Kay
 // const api = new ClashRoyaleAPI('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjA1MGZkY2UyLTZhY2EtNDU2ZC05MjA4LTM2NWE3ZmZiODA3MiIsImlhdCI6MTY1Njk0NDk2Mywic3ViIjoiZGV2ZWxvcGVyLzc1MzJjOTI0LWJiZDEtNDA4NS03NDhlLWU3MjdlMTE5ZTMyOCIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyI3OS4xNTMuMjMuMjU1Il0sInR5cGUiOiJjbGllbnQifV19.5V7PCtz6zwjOyphI_DDztYGikQ0pxLfIZs1aHOwruKnrRLdEup1O0eDMEDvWqcD2SgUOZh64gSWjQqocw_K3tw')
 
-// Use the api to get cards
 
-router.get("/cards", (req, res) => {
-  api
-    .getCards()
-    .then((cards) => {
-      // console.log(cards)
-      // Do something with the cards
-      res.render(`cards/list`, { cards: cards });
-      //res.send( {cards: cards} )
-    })
-    .catch((err) => {
-      // handle errors
-    });
-});
-
-router.post("/add-favorite", isLoggedIn, (req, res) => {
-  const query = ({ name, apiId, maxLevel, iconUrls } = req.body);
-  Card.find({ apiId: apiId }).then((charArray) => {
-    //comprobar si ese apiId ya esta en db cards
-    if (charArray.length === 0) {
-      Card.create(query)
-        .then((result) => {
-          console.log(result);
-          User.findByIdAndUpdate(req.user._id, {
-            $push: { favorites: result._id },
-          }).then(() => {
-            res.redirect("/cards");
+router.get("/deck", isLoggedIn, (req, res) => {
+    User.findById(req.user._id)
+    .then((user) => {
+        if(user.tag){
+          api.getPlayerByTag(user.tag)
+          .then((userTag) => {
+            //console.log(userTag);
+            let avg = (userTag.wins / userTag.losses).toFixed(2);
+            res.render("profile", {user: user, userTag: userTag, avg});
+            // res.send({ userTag: userTag });
           });
-        })
-        .catch((err) => console.log(err));
-    } else {
-      User.findById(req.user._id)
-        .then((user) => {
-          if (!user.favorites.includes(charArray[0]._id)) {
-            User.findByIdAndUpdate(req.user._id, {
-              $push: { favorites: charArray[0]._id },
-            }).then(() => {
-              res.redirect("/cards");
-            });
-          } else {
-            res.redirect("/cards");
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+
+        }})})
+
+router.post("/deck", isLoggedIn, (req, res) => {
+    const deckQuery = ({ apiId, name, iconUrls, userId } = req.body);
+    const {id} = req.params
+
+  Card.find({ userId: userId})
+  
+  
+  .catch((err) => {
+    console.log(err);
   });
 });
-
-router.post("/delete-favorite", isLoggedIn, (req, res) => {
-  const { id } = req.body;
-  User.findByIdAndUpdate(req.user._id, { $pull: { favorites: id } })
-    .then(() => {
-      res.redirect("/profile");
-    })
-    .catch((err) => {console.log(err)});
-});
-
 
 module.exports = router;
