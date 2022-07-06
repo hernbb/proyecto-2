@@ -18,27 +18,32 @@ router.get("/", (req, res, next) => {
 // router.get("/profile", isLoggedOut,(req, res, next)=>{
 //   res.render("auth/login")
 // } )
+
 router.get("/profile", isLoggedIn, (req, res, next) => {
-  User.findById(req.user._id)
-    .populate("favorites")
-    .then((user) => {
-      if(user.tag){
-        api.getPlayerByTag(user.tag)
-        .then((userTag) => {
-          //console.log(userTag);
-          let avg = (userTag.wins / userTag.losses).toFixed(2);
-          res.render("profile", {user: user, userTag: userTag, avg});
-          // res.send({ userTag: userTag });
-        });
-      }
-      else{ 
-        res.render("profile", {user: user});
-      }
-    })
-    .catch((e) => {
-      console.log(e);
-    });
-});
+ 
+    User.findById(req.user._id)
+      .populate("favorites")
+      .then((user) => {
+        if(user.tag){
+          api.getPlayerByTag(user.tag)
+          .then((userTag) => {
+            //console.log(userTag);
+            let avg = (userTag.wins / userTag.losses).toFixed(2);
+            res.render("profile", {user: user, userTag: userTag, avg});
+            // res.send({ userTag: userTag });
+          });
+        }
+        else{ 
+          res.render("profile", {user: user});
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+
+  }
+  
+);
 
 
 
