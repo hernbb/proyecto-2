@@ -15,9 +15,9 @@
   <div class="disFlex">
     <div class="userTag">
       {{#if userTag}}
-      <h3 class="center" > <b>{{userTag.name}}</b></h3>
+      <h3 class="center" >Clash User:  <b>{{userTag.name}}</b></h3>
       <div  class="userName">
-      <p>Actual arena:   <b>{{userTag.arena.name}}</b></p>
+      <p>Arena:   <b>{{userTag.arena.name}}</b></p>
       <p>Clan:   <b>{{userTag.clan.name}}</b></p>
       <p>Exp Level:   <b>{{userTag.expLevel}}</b></p>
       <p>Trophies:   <b>{{userTag.trophies}}</b></p>
@@ -31,6 +31,19 @@
       <img src="{{userTag.currentFavouriteCard.iconUrls.medium}}" class="img"></img> 
       <p>{{userTag.currentFavouriteCard.name}}</p>
     </div>
+
+    {{!-- lista chest --}}
+  <div> 
+    <div class="listaChest centrado">
+      <h4>Up comming chest</h4>
+        <ol>
+            {{#each chest}}
+            <li>{{name}}</li>
+            {{!-- <img src="{{iconUrls}}" class="imgChest" chest="{{name}}"></img>  --}}
+            {{/each}}
+        </ol>
+    </div>
+  </div>
   </div>
   <div>
       <h3 class="center">Current Deck</h3>
@@ -41,9 +54,12 @@
       <p>{{name}}</p>
       </div>
       {{/each}}
+
+  </div>
+  </div>
       {{/if}}
-  </div>
-  </div>
+  
+  
 </div>
 
 </b>

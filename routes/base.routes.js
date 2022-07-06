@@ -25,11 +25,16 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
       .populate("favorites")
       .then((user) => {
         if(user.tag){
+          // console.log(user.tag)
           api.getPlayerByTag(user.tag)
           .then((userTag) => {
             //console.log(userTag);
-            let avg = (userTag.wins / userTag.losses).toFixed(2);
-            res.render("profile", {user: user, userTag: userTag, avg});
+            api.getPlayerUpcomingChests(user.tag)
+            .then((chest)=>{
+              console.log(chest)
+              let avg = (userTag.wins / userTag.losses).toFixed(2);
+              res.render("profile", {user: user, userTag: userTag, avg, chest:chest});
+            })
             // res.send({ userTag: userTag });
           });
         }

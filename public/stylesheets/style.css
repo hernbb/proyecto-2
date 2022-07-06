@@ -67,12 +67,13 @@ a {
   background: rgba(0,0,0,0);
   border: none; 
   text-align: center;
+  box-shadow: none;
 }
 .disFlex{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 100px;
+  gap: 40px;
 }
 #favorite{
   display: flex;
@@ -106,4 +107,16 @@ a {
   width: 1100px;
   height: 600px;
   border-radius: 20px;
+}
+
+.gif-error{
+  position: absolute;
+  margin-left: 300px;
+}
+
+.marginUpdate{
+  margin-top: 50px;
+}
+.listaChest{
+  flex-direction: column;
 }

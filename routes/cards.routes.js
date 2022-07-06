@@ -43,7 +43,7 @@ router.post("/add-favorite", isLoggedIn, (req, res) => {
           User.findByIdAndUpdate(req.user._id, {
             $push: { favorites: result._id },
           }).then(() => {
-            res.redirect("/cards");
+             res.redirect("/cards");
           });
         })
         .catch((err) => console.log(err));

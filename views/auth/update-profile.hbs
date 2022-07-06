@@ -1,6 +1,9 @@
 
+<div class="centrado marginUpdate">
 
-<div class="tab-pane " id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+<div class=" bg-login-signup">
+
+<div class="tab-pane formulario" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
     <form action="/update-profile/{{response._id}}" method="POST">
 
       <!-- Name input -->
@@ -42,8 +45,13 @@
       <!-- Submit button -->
       <button type="submit" class="btn btn-primary btn-block mb-3">Update</button>
     </form>
-  </div>
-
 {{#if errorMessage}}
 <p class="error">{{errorMessage}}</p>
 {{/if}}
+</div>
+  </div>
+
+{{#if errorMessage}}
+<img class="gif-error" src="../../images/bandit.gif">
+{{/if}}
+</div>
