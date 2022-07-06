@@ -25,9 +25,9 @@ router.get("/deck", isLoggedIn, (req, res) => {
         if(user.tag){
           api.getPlayerByTag(user.tag)
           .then((userTag) => {
-            //console.log(userTag);
+            console.log(userTag);
             let avg = (userTag.wins / userTag.losses).toFixed(2);
-            res.render("profile", {user: user, userTag: userTag, avg});
+            res.render("deck", {user: user, userTag: userTag, avg});
             // res.send({ userTag: userTag });
           });
 
