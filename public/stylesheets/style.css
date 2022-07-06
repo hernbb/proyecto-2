@@ -25,8 +25,9 @@ a {
   border-radius: 10px;  
 }
 .bg-home{
-  background: url('../images/fonde.png');
-  background-size: cover;
+  background: url('../images/jajajaja-royale.gif');
+  background-size:contain;
+  background-repeat: no-repeat;
   background-position-y: center;
   margin-top: 50px;
   width: 100%;
