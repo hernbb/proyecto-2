@@ -1,31 +1,26 @@
 
 
 
-<div class='container'>
+
   <h1>Cards list</h1>
 
-  <div class='row row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5 my-5'>
+  <div id="favorite" >
   {{!-- image name status --}}
     {{#each cards}}
-    <div class='col'>
-      <div class='card shadow-sm'>
+    <div id="favoriteCards" class='col center'>
         <img src="{{iconUrls.medium}}" alt="">
-        <p>{{name}}</p>
-        <p>{{id}}</p>
-        <p>{{maxLevel}}</p>
-        <form action = "/add-favorite" method="POST">
-          
+        <h5>{{name}}</h5>
+        <p>Max level: <b>{{maxLevel}}</b></p>
+        <form action = "/add-favorite" method="POST">         
           <input type="hidden" name="name" value={{name}}>
           <input type="hidden" name="apiId" value={{id}}>
           <input type="hidden" name="maxLevel" value={{maxLevel}}>
           <input type="hidden" name="iconUrls" value={{iconUrls.medium}}>
-          
-
-          <button type="submit">Añadir a favoritos</button>
+          <button class="btn btn-primary" type="submit">Añadir a favoritos</button>
         </form>
-      </div>
+      
     </div>
     {{/each}}    
   </div>
-</div>
+
 

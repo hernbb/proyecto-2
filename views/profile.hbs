@@ -1,31 +1,55 @@
 
 
+<div class="nameProfile">
+    <div>
+      <h1>Bienvenido {{user.username}}</h1>
+      <h5><b>{{user.name}}</b></h5>
+    </div>
+    <div>
+  <a class="btn btn-primary btn-block mb-4" href="/update-profile/{{user._id}}">Update profile</a>
+  <a class="btn btn-primary btn-block mb-4" href="/logout">Logout</a>
+    </div>
+</div>
 
-<h1>Bienvenido {{user.username}}</h1>
-<h5><b>{{user.name}}</b></h5>
-<a href="/update-profile/{{user._id}}">Update profile</a>
-{{#if userTag}}
-<h5>In game name: <b>{{userTag.name}}</b></h5>
-<h6>Actual arena: <b>{{userTag.arena.name}}</b></h6>
-<h6>Clan: <b>{{userTag.clan.name}}</b></h6>
-<h6>{{userTag.currentFavouriteCard.name}}</h6>
-<img src="{{userTag.currentFavouriteCard.iconUrls.medium}}"></img> 
-<p>Exp Level: <b>{{userTag.expLevel}}</b></p>
-<p>Trophies: <b>{{userTag.trophies}}</b></p>
-<p>Wins: <b>{{userTag.wins}}</b></p>
-<p>Losses: <b>{{userTag.losses}}</b></p>
-<p>Win ratio: <b>{{avg}}</b></p>
-<h4>Current Deck:</h4>
-{{#each userTag.currentDeck}}
-<img src="{{iconUrls.medium}}"></img> 
-<p>{{name}}</p>
-{{/each}}
-{{/if}}
+<div id="userTagInfo">
+  <div class="disFlex">
+    <div class="userTag">
+      {{#if userTag}}
+      <h3 class="center" > <b>{{userTag.name}}</b></h3>
+      <div  class="userName">
+      <p>Actual arena:   <b>{{userTag.arena.name}}</b></p>
+      <p>Clan:   <b>{{userTag.clan.name}}</b></p>
+      <p>Exp Level:   <b>{{userTag.expLevel}}</b></p>
+      <p>Trophies:   <b>{{userTag.trophies}}</b></p>
+      <p>Wins:   <b>{{userTag.wins}}</b></p>
+      <p>Losses:   <b>{{userTag.losses}}</b></p>
+      <p>Win ratio: <b>{{avg}}</b></p>
+      </div>
+    </div>
+    <div class="center">
+      <h4>Favorite card</h4>
+      <img src="{{userTag.currentFavouriteCard.iconUrls.medium}}" class="img"></img> 
+      <p>{{userTag.currentFavouriteCard.name}}</p>
+    </div>
+  </div>
+  <div>
+      <h3 class="center">Current Deck</h3>
+  <div id="deck">
+      {{#each userTag.currentDeck}}
+      <div class="card">
+      <img src="{{iconUrls.medium}}" class="img"></img> 
+      <p>{{name}}</p>
+      </div>
+      {{/each}}
+      {{/if}}
+  </div>
+  </div>
+</div>
+
 </b>
 <br>
 <br>
 <br>
-              <a class="nav-link" href="/logout">Logout</a>
 <br>
 <br>
 <br>
@@ -38,27 +62,27 @@
 <button type="submit">borrar favorito</button>
 </form>
 {{/each}} --}}
+<h2 class="center"> Favorite cards ❤️</h2> 
+<div id="favorite">
 {{#each user.favorites}}
-<div class="card">
-  <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+<div id="favoriteCards" class="card">
+  <div  class="bg-image hover-overlay ripple " data-mdb-ripple-color="light">
     <img src={{iconUrls}} alt={{name}} class="img-fluid"/>
-    <a href="#!">
-      <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-    </a>
+   
   </div>
-  <div class="card-body">
+  <div class="card-body center">
     <h5 class="card-title">{{name}}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     
     <form action = "/delete-favorite" method="POST">
     <input type="hidden" name="id" value={{_id}}>
     <button type="submit" class="btn btn-primary">borrar favorito</button>
     </form>
 
-    <form action = "/deck" method="POST">
+    {{!-- <form action = "/deck" method="POST">
     <input type="hidden" name="id" value={{_id}}>
     <button type="submit" class="btn btn-primary">Add to deck</button>
-    </form>
+    </form> --}}
   </div>
 </div>
 {{/each}}
+</div>
