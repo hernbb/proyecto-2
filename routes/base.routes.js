@@ -31,7 +31,7 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
             //console.log(userTag);
             api.getPlayerUpcomingChests(user.tag)
             .then((chest)=>{
-              console.log(chest)
+              //console.log(chest)
               let avg = (userTag.wins / userTag.losses).toFixed(2);
               res.render("profile", {user: user, userTag: userTag, avg, chest:chest});
             })
