@@ -55,8 +55,11 @@
     <button type="submit" class="btn btn-primary">borrar favorito</button>
     </form>
 
-    <form action = "/deck" method="POST">
-    <input type="hidden" name="id" value={{_id}}>
+    <form action="/add-to-deck" method="POST">
+    <input  name="name" value={{name}}>
+    <input  name="apiId" value={{id}}>
+    <input  name="maxLevel" value={{maxLevel}}>
+    <input  name="iconUrls" value={{iconUrls}}>
     <button type="submit" class="btn btn-primary">Add to deck</button>
     </form>
   </div>

@@ -20,7 +20,8 @@ const api = new ClashRoyaleAPI(
 
 
 router.get("/deck", isLoggedIn, (req, res) => {
-    User.findById(req.user._id)
+  
+    Deck.find(req.user._id)
     .then((user) => {
         if(user.tag){
           api.getPlayerByTag(user.tag)
@@ -33,16 +34,10 @@ router.get("/deck", isLoggedIn, (req, res) => {
 
         }})})
 
-router.post("/deck", isLoggedIn, (req, res) => {
-    const deckQuery = ({ apiId, name, iconUrls, userId } = req.body);
-    const {id} = req.params
-
-  Card.find({ userId: userId})
-  
-  
-  .catch((err) => {
-    console.log(err);
-  });
+router.post("/add-to-deck", isLoggedIn, (req, res) => {
+const query = ({ name, apiId, maxLevel, iconUrls } = req.body);
+    
+console.log("hola", query, user, req.session.user, req.user)
 });
 
 module.exports = router;
