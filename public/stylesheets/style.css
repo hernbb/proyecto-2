@@ -5,11 +5,14 @@
 
 * {
   color: #fff;
+  text-shadow: 3px 3px rgb(0, 0, 0);
+
 }
 body {
   padding: 50px;
   font-family: 'ClashRoyale' !important ;
   font-size: 10px !important;
+
   /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
 }
 .img {
@@ -31,14 +34,47 @@ a {
   border-radius: 10px;
 }
 .bg-home {
-  background: url("../images/jajajaja-royale.gif");
-  background-size: contain;
+  background: url("../images/landing-decks.png");
+  background-size: cover;
+  background-position-y: top;
   background-repeat: no-repeat;
-  background-position-y: center;
-  background-position-x: center;
-  margin-top: 50px;
+  border-radius: 20px;
+  margin-top: 35px;
   width: 100%;
-  height: 600px;
+  height: 620px;
+}
+.navbar-nav li{
+  font-size: 14px;;
+}
+.nav-item a:hover{
+  color: #df9405 !important;
+}
+.gold:hover{
+  color: #df9405 !important;
+
+}
+.between{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.git{
+  
+  gap: 50px;
+}
+.git a {
+  text-decoration: none;
+color: #df9405;
+font-size: 14px;
+margin-right: 30px;
+}
+.git a:hover{
+  color: #fff;
+}
+.title-home{
+  text-align: center;
+  color: #df9405;
+  text-shadow: 5px 3px rgb(0, 0, 0);
 }
 .imgNav {
   position: absolute;
@@ -131,6 +167,26 @@ a {
   background: url("../images/backgroundNav.png");
 }
 .register{
-  text-decoration: none;
-  
+  text-decoration: none;  
+}
+.emblema{
+  width: 300px;
+
+}
+.emblemaPosition{
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 20px;
+  gap: 50px;
+}
+.miniP{
+  width: 115px;
+  margin-top: 10px;
+}
+.shadow{
+  text-shadow: 5px 3px rgb(0, 0, 0);
+
+}
+.text-none {
+  text-shadow: none;
 }

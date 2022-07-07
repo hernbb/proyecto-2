@@ -8,26 +8,26 @@
 
       <!-- Name input -->
       <div class="form-outline mb-4">
-        <input type="text" name='name' id="registerName" class="form-control" value="{{response.name}}"/>
-        <label class="form-label" for="registerName">Name</label>
+        <input type="text" name='name' id="registerName" class="form-control text-none" value="{{response.name}}"/>
+        <label class="form-label text-none" for="registerName">Name</label>
       </div>
 
       <!-- Username input -->
       <div class="form-outline mb-4">
-        <input type="text" name="username" id="registerUsername" class="form-control" value="{{response.username}}" />
-        <label class="form-label" for="registerUsername">Username</label>
+        <input type="text" name="username" id="registerUsername" class="form-control text-none" value="{{response.username}}" />
+        <label class="form-label text-none" for="registerUsername">Username</label>
       </div>
 
      <!-- Tag input -->
       <div class="form-outline mb-4">
-        <input type="text" name="tag" id="registerUsername" class="form-control"  value="{{response.tag}}" placeholder="#"/>
-        <label class="form-label" for="registerUsername">Tag</label>
+        <input type="text" name="tag" id="registerUsername" class="form-control text-none"  value="{{response.tag}}" placeholder="#"/>
+        <label class="form-label text-none" for="registerUsername">Tag</label>
       </div>
 
       <!-- Old Password  -->   
       <div class="form-outline mb-4">
-        <input type="password" name='password'id="registerPassword" class="form-control" />
-        <label class="form-label" for="registerPassword">New Password</label>
+        <input type="password" name='password'id="registerPassword" class="form-control text-none" />
+        <label class="form-label text-none" for="registerPassword">New Password</label>
       </div>
 
       <!-- New Password input -->
@@ -43,10 +43,10 @@
       </div> --}}
 
       <!-- Submit button -->
-      <button type="submit" class="btn btn-dark btn-block mb-3 buttonBackground">Update</button>
+      <button type="submit text-none" class="btn btn-dark btn-block mb-3 buttonBackground gold">Update</button>
     </form>
 {{#if errorMessage}}
-<p class="error">{{errorMessage}}</p>
+<p class="error text-none">{{errorMessage}}</p>
 {{/if}}
 </div>
   </div>

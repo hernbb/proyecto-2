@@ -7,8 +7,8 @@
       <h5><b>{{user.name}}</b></h5>
     </div>
     <div>
-  <a class="btn btn-sm btn-dark btn-block mb-1 buttonBackground" href="/update-profile/{{user._id}}">Update profile</a>
-  <a class="btn btn-sm btn-dark btn-block mb-1 buttonBackground" href="/logout">Logout</a>
+  <a class="btn btn-sm btn-dark btn-block mb-1 buttonBackground gold" href="/update-profile/{{user._id}}">Update profile</a>
+  <a class="btn btn-sm btn-dark btn-block mb-1 buttonBackground gold" href="/logout">Logout</a>
     </div>
 </div>
 
@@ -92,7 +92,7 @@
     
     <form action = "/delete-favorite" method="POST">
     <input type="hidden" name="id" value={{_id}}>
-    <button type="submit" class="btn btn-sm buttonBackground btn-dark">borrar favorito</button>
+    <button type="submit" class="btn btn-sm buttonBackground btn-dark gold">borrar favorito</button>
     </form>
 
     {{!-- <form action = "/deck" method="POST">
