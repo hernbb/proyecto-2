@@ -1,32 +1,38 @@
-*{
+@font-face {
+  font-family: 'ClashRoyale';
+  src: url('../fonts/YouBlockhead.ttf');
+}
+
+* {
   color: #fff;
 }
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  
+  font-family: 'ClashRoyale' !important ;
+  font-size: 10px !important;
+  /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
 }
- .img{
+.img {
   width: 150px;
 }
 a {
   color: #00b7ff;
 }
 
-.error{
+.error {
   color: red;
 }
 
-.background{
-  background: url('../images/background.png');
+.background {
+  background: url("../images/background.png");
 }
-.backgroundNav{
-  background: url('../images/backgroundNav.png');
-  border-radius: 10px;  
+.backgroundNav {
+  background: url("../images/backgroundNav.png");
+  border-radius: 10px;
 }
-.bg-home{
-  background: url('../images/jajajaja-royale.gif');
-  background-size:contain;
+.bg-home {
+  background: url("../images/jajajaja-royale.gif");
+  background-size: contain;
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: center;
@@ -34,73 +40,73 @@ a {
   width: 100%;
   height: 600px;
 }
-.imgNav{
+.imgNav {
   position: absolute;
   width: 9em;
 }
-.espacio{
-  margin-left: 12em;
+.espacio {
+  margin-left: 200px;
 }
-.nameProfile{
+.nameProfile {
   margin-top: 1em;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-#userTagInfo{
+#userTagInfo {
   margin-top: 1em;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-#deck{
+#deck {
   display: flex;
   flex-wrap: wrap;
   width: 600px;
 }
-.center{
+.center {
   text-align: center;
 }
-#deck .card{
+#deck .card {
   padding: 0;
-  background: rgba(0,0,0,0);
-  border: none; 
+  background: rgba(0, 0, 0, 0);
+  border: none;
   text-align: center;
   box-shadow: none;
 }
-.disFlex{
+.disFlex {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
 }
-#favorite{
+#favorite {
   display: flex;
   flex-wrap: wrap;
 }
-#favoriteCards{
-  background: rgba(0,0,0,0);
+#favoriteCards {
+  background: rgba(0, 0, 0, 0);
   width: 20%;
-  border: none; 
+  border: none;
   box-shadow: none;
 }
-.centrado{
+.centrado {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.formulario{
+.formulario {
   background: #fff;
   padding: 20px;
   border-radius: 20px;
 }
-.member{
+.member {
   color: black;
 }
-.bg-login-signup{
-  background: url('../images/login-signup.png');
+.bg-login-signup {
+  background: url("../images/login-signup.png");
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -110,17 +116,21 @@ a {
   border-radius: 20px;
 }
 
-.gif-error{
+.gif-error {
   position: absolute;
   margin-left: 300px;
 }
 
-.marginUpdate{
+.marginUpdate {
   margin-top: 50px;
 }
-.listaChest{
+.listaChest {
   flex-direction: column;
 }
-.buttonBackground{
-  background: url('../images/backgroundNav.png');
+.buttonBackground {
+  background: url("../images/backgroundNav.png");
+}
+.register{
+  text-decoration: none;
+  
 }

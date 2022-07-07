@@ -1,8 +1,9 @@
 
 
-<div class="nameProfile">
+<div class="nameProfile marginUpdate">
     <div>
-      <h1>Bienvenido {{user.username}}</h1>
+      <h2>Bienvenido {{user.username}}</h2>
+      <br>
       <h5><b>{{user.name}}</b></h5>
     </div>
     <div>
@@ -15,7 +16,7 @@
   <div class="disFlex">
     <div class="userTag">
       {{#if userTag}}
-      <h4 class="center" >Clash User:  <b>{{userTag.name}}</b></h4>
+      <h5 class="center" >Clash User: <b>{{userTag.name}}</b></h5>
       <div  class="userName">
       <p>Arena:   <b>{{userTag.arena.name}}</b></p>
       <p>Clan:   <b>{{userTag.clan.name}}</b></p>
@@ -27,12 +28,12 @@
       </div>
     </div>
     <div class="center">
-      <h4>Favorite card</h4>
+      <h5>Favorite card</h5>
       <img src="{{userTag.currentFavouriteCard.iconUrls.medium}}" class="img"></img> 
       <p>{{userTag.currentFavouriteCard.name}}</p>
     </div>
   <div>
-      <h3 class="center">Current Deck</h3>
+      <h4 class="center">Current Deck</h4>
   <div id="deck">
       {{#each userTag.currentDeck}}
       <div class="card">
@@ -47,7 +48,7 @@
     {{!-- lista chest --}}
   <div> 
     <div class="listaChest centrado">
-      <h4>Up comming chest</h4>
+      <h5 class="center ">Upcomming chests:</h5>
         <ol>
             {{#each chest}}
             <li>{{name}}</li>
@@ -78,7 +79,7 @@
 <button type="submit">borrar favorito</button>
 </form>
 {{/each}} --}}
-<h2 class="center"> Favorite cards ❤️</h2> 
+<h3 class="center"> Favorite cards ❤️</h3> 
 <div id="favorite">
 {{#each user.favorites}}
 <div id="favoriteCards" class="card">
@@ -91,7 +92,7 @@
     
     <form action = "/delete-favorite" method="POST">
     <input type="hidden" name="id" value={{_id}}>
-    <button type="submit" class="btn btn-primary">borrar favorito</button>
+    <button type="submit" class="btn btn-sm buttonBackground btn-dark">borrar favorito</button>
     </form>
 
     {{!-- <form action = "/deck" method="POST">
