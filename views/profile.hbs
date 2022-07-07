@@ -6,8 +6,8 @@
       <h5><b>{{user.name}}</b></h5>
     </div>
     <div>
-  <a class="btn btn-primary btn-block mb-4" href="/update-profile/{{user._id}}">Update profile</a>
-  <a class="btn btn-primary btn-block mb-4" href="/logout">Logout</a>
+  <a class="btn btn-sm btn-dark btn-block mb-1 buttonBackground" href="/update-profile/{{user._id}}">Update profile</a>
+  <a class="btn btn-sm btn-dark btn-block mb-1 buttonBackground" href="/logout">Logout</a>
     </div>
 </div>
 
@@ -15,7 +15,7 @@
   <div class="disFlex">
     <div class="userTag">
       {{#if userTag}}
-      <h3 class="center" >Clash User:  <b>{{userTag.name}}</b></h3>
+      <h4 class="center" >Clash User:  <b>{{userTag.name}}</b></h4>
       <div  class="userName">
       <p>Arena:   <b>{{userTag.arena.name}}</b></p>
       <p>Clan:   <b>{{userTag.clan.name}}</b></p>
@@ -31,6 +31,18 @@
       <img src="{{userTag.currentFavouriteCard.iconUrls.medium}}" class="img"></img> 
       <p>{{userTag.currentFavouriteCard.name}}</p>
     </div>
+  <div>
+      <h3 class="center">Current Deck</h3>
+  <div id="deck">
+      {{#each userTag.currentDeck}}
+      <div class="card">
+      <img src="{{iconUrls.medium}}" class="img"></img> 
+      <p>{{name}}</p>
+      </div>
+      {{/each}}
+
+  </div>
+  </div>
 
     {{!-- lista chest --}}
   <div> 
@@ -43,18 +55,6 @@
             {{/each}}
         </ol>
     </div>
-  </div>
-  </div>
-  <div>
-      <h3 class="center">Current Deck</h3>
-  <div id="deck">
-      {{#each userTag.currentDeck}}
-      <div class="card">
-      <img src="{{iconUrls.medium}}" class="img"></img> 
-      <p>{{name}}</p>
-      </div>
-      {{/each}}
-
   </div>
   </div>
       {{/if}}

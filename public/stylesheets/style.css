@@ -121,3 +121,6 @@ a {
 .listaChest{
   flex-direction: column;
 }
+.buttonBackground{
+  background: url('../images/backgroundNav.png');
+}
