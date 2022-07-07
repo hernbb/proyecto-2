@@ -93,7 +93,8 @@ router.post("/signup", isLoggedOut, (req, res) => {
           .status(500)
           .render("auth/signup", { errorMessage: error.message });
       });
-  });
+  }).catch((err) => console.log(err));
+
 });
 
 router.get("/login", isLoggedOut, (req, res) => {
